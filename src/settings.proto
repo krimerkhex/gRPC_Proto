@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+message Coordinate {
+  float point1 = 1;
+  float point2 = 2;
+  float point3 = 3;
+  float point4 = 4;
+  float point5 = 5;
+  float point6 = 6;
+}
+
+enum Aligment {
+  Ally = 0;
+  Enemy = 1;
+}
+
+enum ShipType {
+    Corvette = 0;
+    Frigate = 1;
+    Cruiser = 2;
+    Destroyer = 3;
+    Carrier = 4;
+    Dreadnought = 5;
+}
+
+message Officer {
+    string first_name = 1;
+    string last_name = 2;
+    string rank = 3;
+}
+
+message Message {
+    Aligment aligment = 1;
+    string name = 2;
+    ShipType classs = 3;
+    int32 length = 4;
+    int32 crew_size = 5;
+    bool armed = 6;
+    repeated Officer officer = 7;
+}
+
+service GettingMessage {
+ rpc SendMessage (Coordinate) returns (stream Message) {}
+}

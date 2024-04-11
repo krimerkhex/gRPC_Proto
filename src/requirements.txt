@@ -1,0 +1,8 @@
+argparse
+jsonrpcclient
+grpcio
+loguru
+pydantic
+psycopg2
+grpcio-tools
+faker
